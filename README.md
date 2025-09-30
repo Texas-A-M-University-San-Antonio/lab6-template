@@ -1,133 +1,100 @@
-## In-Class 5: Decimal to Hexadecimal Digit Converter
+# Programming Fundamentals I - Fall 2025
 
-**You must finish the code in `InClass5_FirstName_LastName.java` and add detailed comments throughout your program to explain what each part is doing.**
+## Lab Assignment #6: Random Median
 
-### Instructions
-
-1. Write a program that prompts the user to enter a single integer value from 0 to 15.
-2. Use a `switch` statement to convert the decimal value to its hexadecimal equivalent (0-9, A-F).
-3. Print the hexadecimal value to the console.
-4. **Add detailed comments throughout your code** to explain each step, including:
-   - What the program does overall (at the top)
-   - What each variable is for
-   - What each section of logic is doing (input, conversion, output)
-   - Why you use a `switch` statement for this task
-
+*Due at 11:59 pm the night before the next lab session*
 
 ---
-
-🚦 **STOP! Checkpoint** 🚦
-
-Before you go any further, take a moment to **commit and sync your work so far** to reflect your In-Class 5 work.
-
-Not sure how? Skip to the "Commit Your Changes" instructions at the end of this document!
-
----
-
-**You will receive full participation credit for completing and submitting this in-class exercise, but your code must be finished and clearly commented.**
-
-
----
-
-# Lab 5: Color Code Hexadecimal Converter
-
-*For this week only, Lab 5 is due on Tuesday (9/30) at 11:59 p.m. for BOTH Tuesday (62L) and Wednesday (60L) students*
 
 ## Purpose
 
-A graphics designer needs software to prepare a color palette. Part of this preparation is indicating the amount of red, green, and blue being used for a specific color. Colors may be represented as sequences of hexadecimal (base 16) digits, so these values need to be calculated from decimal (base 10) numbers. This lab focuses on:
+Data analysts want to prepare some random samples around the median (middle) value of a range. You are tasked with preparing the initial code for this application. This program focuses on the following concepts:
 
-- Using logical operators and if statements to check multiple conditions
-- Using switch statements to select one of many options
+• Using `Math.random()` to generate numbers in any range
+
+---
+
+## In-Class 6
+
+Let's consider a simpler case first. Suppose the user wants to generate a random number by specifying the smallest and largest possible values within that range.
+
+Write a program that allows the user to choose two integers: the first input specifies the smallest possible random value, and the second input specifies the largest possible random value. Use those two numbers to determine the amount to multiply by and the amount to add to properly generate a random number in the user's requested range.
 
 ---
 
 ## Task
 
-Create a new Java file titled `ColorCode_FirstName_LastName.java` or `Lab5_FirstName_LastName.java`. You must include comments summarizing the program.
+Create a project called `RandomMedian_FirstName_LastName` or `Lab6_FirstName_LastName`. Remember to include comments summarizing the program.
 
+### Requirements
 
-### Steps
+1. **Declare a Scanner** that accepts input from the keyboard.
 
-1. Make sure the initial code of your application is prepared to write statements in the main method.
-2. Declare a Scanner that accepts input from the keyboard.
-3. Declare the following five variables:
-   - A variable of type `int` that will hold the user’s input
-   - A variable of type `int` that will hold the result of dividing this input by 16
-   - A variable of type `int` that will hold the result of performing mod 16 on this input
-   - A variable of type `String` that will hold the most significant digit
-   - A variable of type `String` that will hold the least significant digit
-4. Prompt the user to enter the amount of red as an integer from 0 to 255. Use the appropriate method of the Scanner class to assign the user’s input to the appropriate variable.
-5. Use a logical operator within an if statement to check that the number is between 0 to 255, inclusive.
-   - If the number is, proceed with the remaining steps within this if block.
-   - Else, the number is not valid. Print a statement to the console indicating the user provided an invalid input.
+2. **Declare the following four variables** in your program:
 
-For **Steps 6 and 7**, use the following table to determine the hexadecimal equivalent for each decimal value:
+   • A variable of type `double` that will hold the median of the range
 
-**For Steps 6 and 7, you MUST use a `switch` statement to convert decimal values to their hexadecimal equivalents.**
+   • A variable of type `int` that will hold the size of the range
 
-💡 **Hint:** Think about how you handled the InClass exercise for converting a single digit to hexadecimal. Is there a way to use the `default` case in your `switch` statement to handle all the values from 0 to 9 at once? Try to figure out how this can make your code more concise!
+   • A variable of type `int` that will hold the amount to shift the randomly generated range
 
-Refer to this table for your switch cases:
+   • A variable of type `int` that will hold the final randomly generated number
 
-| Decimal | Hexadecimal |
-|---------|-------------|
-| 0       | 0           |
-| 1       | 1           |
-| 2       | 2           |
-| 3       | 3           |
-| 4       | 4           |
-| 5       | 5           |
-| 6       | 6           |
-| 7       | 7           |
-| 8       | 8           |
-| 9       | 9           |
-| 10      | A           |
-| 11      | B           |
-| 12      | C           |
-| 13      | D           |
-| 14      | E           |
-| 15      | F           |
+   *Note: This set of variables is only a recommendation. You may include additional variables or remove variables as needed.*
 
-6. The hexadecimal value will consist of two digits. To get the first digit (the most significant digit), divide the user’s input by 16 using integer division.
-   - Use a `switch` statement to convert the result (0–15) to its hexadecimal character (0–9, A–F) and assign it to the String for the most significant digit.
-7. To get the second digit (the least significant digit), perform a modulo operation with 16 on the user’s input.
-   - Again, use a `switch` statement to convert the result (0–15) to its hexadecimal character (0–9, A–F) and assign it to the String for the least significant digit.
-8. Print the amount of red as a hexadecimal value to the console.
+3. **Include a prompt** to the user to input the median of the range. Use the appropriate method of the Scanner class to assign the user's input to the appropriate variable.
 
-#### Example Program Flows
+4. **Include a second prompt** to the user to input the size of the range. Use the appropriate method of the Scanner class to assign the user's input to the appropriate variable.
 
-If the user enters 175 as the decimal value:
-```
-Please enter the amount of red (0-255): 175
-The hexadecimal value is: AF
-```
+5. **Use the user's two inputs** to calculate the amount to shift the randomly generated range. Keep in mind that this shift will also be equal to the smallest possible random value. Make sure these calculations account for both an even range and an odd range.
 
-If the user enters 289 as the decimal value:
-```
-Please enter the amount of red (0-255): 289
-Invalid input: value must be between 0 and 255.
-```
+6. **Calculate the final randomly generated number** using the result of `Math.random()`, the size of the range, and the amount to shift.
 
-Test your program with a variety of values (0, 15, 16, 255, etc.) to ensure it works for all valid and invalid cases. Try to predict the hexadecimal output and check your logic!
-
+7. **Print the randomly generated number** to the console.
 
 ---
 
+## Assumptions
+
+Assume the user provides valid inputs. For consecutive numbers, the median must either be an integer or .5 value, such as 1.5, 2.5, etc. If the user provides an integer, the size of the range must be an odd number. If the user provides a .5 value, the size of the range must be an even number.
+
+### Example Cases and Program Flow
+
+**Case 1:** The user enters 9 for the median and 3 for the size. The following is the range of possible outputs:
+```
+8, 9, 10
+```
+The following is the program flow for this program:
+```
+Please enter the median for this random range: 9
+Please enter the size of this random range: 3
+The random number is 8
+```
+
+**Case 2:** The user enters 13.5 for the median and 4 for the size. The following is the range of possible outputs:
+```
+12, 13, 14, 15
+```
+The following is the program flow for this program:
+```
+Please enter the median for this random range: 13.5
+Please enter the size of this random range: 4
+The random number is 12
+```
+ 
+**NOTE:** Keep in mind the result is randomly generated, so the output may differ on each run of the program.
+
 ## Grading Criteria
 
-- Comment summarizing the program (5 points)
-- Importing and declaring the Scanner (3 points)
-- Appropriate variable declarations (12 points total)
-- Request for the user’s input (5 points)
-- Validating the user’s input (10 points)
-- Correctly calculating the hexadecimal value (60 points):
-   - Division operation (5 points)
-   - Determining the most significant digit (25 points)
-   - Modulo operation (5 points)
-   - Determining the least significant digit (25 points)
-- Printing the output (5 points)
+- **Comment summarizing the program** (5 points)
+- **Importing and declaring the Scanner** (5 points)
+- **Appropriate variable declarations** (15 points total)
+- **Two requests for user input** (5 points each, 10 points total)
+- **Correctly calculating the shift for the random number** (40 points)
+- **Correctly calculating the randomly generated number** (15 points)
+- **Output of the result** (10 points)
 
+**Total: 100 points**
 
 ---
 
@@ -147,9 +114,9 @@ After pushing your changes, visit your assignment repository on GitHub Classroom
 ### Step 3: Submit to Blackboard Assignment
 Once you have verified your submission on GitHub Classroom, copy the URL of your assignment repository and submit this GitHub repository link to Blackboard as confirmation that you are DONE.
 
-**InClass5_FirstName_LastName.java (Participation points):**
+**InClass6_FirstName_LastName.java (Participation points):**
 Full credit is awarded for completing and submitting the in-class exercise, regardless of output or minor errors.
 
-**Keep going!** By Lab 5, you’re advancing your skills and showing real growth in programming logic and problem-solving. You’ve moved beyond the basics—now is the time to challenge yourself, experiment, and refine your approach. Trust your abilities, keep practicing, and take pride in your progress. If you encounter obstacles, use them as opportunities to learn and improve. Each lab is a step forward in your journey to becoming a confident, independent programmer. Stay curious, keep asking questions, and celebrate how far you’ve come!
+**Excellent work!** You've reached Lab 6, and this assignment introduces you to the powerful world of random number generation with `Math.random()`. This lab challenges you to think mathematically about ranges, medians, and how to transform random values to fit specific requirements. Working with both integer and decimal medians will stretch your problem-solving skills and deepen your understanding of data types and calculations. Remember, every programmer has wrestled with mathematical logic—embrace the challenge, break down the problem step by step, and don't hesitate to test your code frequently. You're building the foundation for more advanced programming concepts!
 
-**Important:** Do NOT edit or tamper with any test files (such as Lab5Test.java or InClass5Test.java). These files are used for autograding and checking your work. In future labs, if test files appear to be modified, you may be contacted to verify the integrity of your submission.
+**Important:** This lab template includes `InClass6_FirstName_LastName.java` with helpful comment guidance to get you started. Focus on completing both the in-class exercise and the main lab assignment. Do NOT edit or tamper with any test files if they appear in your repository. These files are used for autograding and checking your work.
